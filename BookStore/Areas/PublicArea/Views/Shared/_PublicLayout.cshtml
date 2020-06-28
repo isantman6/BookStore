@@ -27,9 +27,20 @@
     <meta name="twitter:title" content="HOME - זוגי חורפי" />
     <meta name="twitter:image" content="https://winter-binyamin.com/wp-content/uploads/2018/12/14.jpg" />
     @*<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>
-            {"$context":"https://schema.org","$graph":[{"$type":"WebSite","$id":"https://winter-binyamin.com/#website","url":"https://winter-binyamin.com/","name":"\u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9","description":"\u05de\u05d1\u05e6\u05e2\u05d9 \u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9 \u05d1\u05d1\u05e0\u05d9\u05de\u05d9\u05df","potentialAction":{"@type":"SearchAction","target":"https://winter-binyamin.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://winter-binyamin.com/#primaryimage","url":"https://winter-binyamin.com/wp-content/uploads/2018/11/412-1.jpg","width":1824,"height":2736,"caption":"\u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9"},{"@type":"WebPage","@id":"https://winter-binyamin.com/#webpage","url":"https://winter-binyamin.com/","inLanguage":"he-IL","name":"HOME - \u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9","isPartOf":{"@id":"https://winter-binyamin.com/#website"},"primaryImageOfPage":{"@id":"https://winter-binyamin.com/#primaryimage"},"datePublished":"2018-11-16T18:31:18+00:00","dateModified":"2019-12-11T14:33:06+00:00"}]}
+            {"$context":"https://schema.org","$graph":[{"$type":"WebSite","$id":"https://winter-binyamin.com/#website",
+        "url":"https://winter-binyamin.com/","name":"\u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9",
+        "description":"\u05de\u05d1\u05e6\u05e2\u05d9 \u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9 \u05d1\u05d1\u05e0\u05d9\u05de\u05d9\u05df",
+        "potentialAction":{"SearchAction","target":"https://winter-binyamin.com/?s={search_term_string}","query-input":"required name=search_term_string"}},
+        {"type":"ImageObject","id":"https://winter-binyamin.com/#primaryimage",
+        "url":"https://winter-binyamin.com/wp-content/uploads/2018/11/412-1.jpg",
+        "width":1824,"height":2736,"caption":"\u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9"},
+        {"type":"WebPage","id":"https://winter-binyamin.com/#webpage","url":"https://winter-binyamin.com/",
+        "inLanguage":"he-IL","name":"HOME - \u05d6\u05d5\u05d2\u05d9 \u05d7\u05d5\u05e8\u05e4\u05d9",
+        "isPartOf":{"id":"https://winter-binyamin.com/#website"},
+        "primaryImageOfPage":{"id":"https://winter-binyamin.com/#primaryimage"},
+        "datePublished":"2018-11-16T18:31:18+00:00","dateModified":"2019-12-11T14:33:06+00:00"}]}
         </script>*@
-    <!-- / Yoast SEO plugin. -->
+     / Yoast SEO plugin. 
 
     <link rel="alternate" type="application/rss+xml" title="זוגי חורפי &laquo; פיד‏" href="https://winter-binyamin.com/feed/" />
     <link rel="alternate" type="application/rss+xml" title="זוגי חורפי &laquo; פיד תגובות‏" href="https://winter-binyamin.com/comments/feed/" />
@@ -100,11 +111,15 @@
                                     <div class="elementor-widget-wrap">
                                         <div class="elementor-element elementor-element-19c9538 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="19c9538" data-element_type="widget" data-widget_type="theme-site-logo.default">
                                             <div class="elementor-widget-container">
-                                                <div class="elementor-image">
-                                                    <a href="https://winter-binyamin.com" data-elementor-open-lightbox="">
-                                                        <img width="1024" height="622" src="https://winter-binyamin.com/wp-content/uploads/2019/12/cropped-wolflogo-1024x689.png" class="attachment-full size-full" alt="" srcset="https://winter-binyamin.com/wp-content/uploads/2019/12/cropped-wolflogo-1024x689.png 1024w, https://winter-binyamin.com/wp-content/uploads/2019/12/cropped-wolflogo-1024x689-300x182.png 300w, https://winter-binyamin.com/wp-content/uploads/2019/12/cropped-wolflogo-1024x689-768x467.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" />
-                                                    </a>
-                                                </div>
+                                                <a href='@Url.Action("MyCart", "Public")'>
+                                                    >
+                                                    <div class="elementor-image">
+
+                                                        <img width="1024" height="622" scr="~/imeges/cart.jpg"
+                                                             class="attachment-full size-full" alt="" sizes="(max-width: 1024px) 100vw, 1024px" />
+
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -130,14 +145,14 @@
                                                 <div class="elementor-image-carousel-wrapper swiper-container" dir="ltr">
                                                     <div class="elementor-image-carousel swiper-wrapper">
                                                         @*@foreach (var category in Model)
-                                                        {
-                                                            <div class="swiper-slide">
-                                                                <figure class="swiper-slide-inner">
-                                                                    <img class="swiper-slide-image" style="width: 70%; height:300px" src="@___________@" alt="winter3" />
+                                                            {
+                                                                <div class="swiper-slide">
+                                                                    <figure class="swiper-slide-inner">
+                                                                        <img class="swiper-slide-image" style="width: 70%; height:300px" src="@___________@" alt="winter3" />
 
-                                                                </figure>
-                                                            </div>
-                                                        }*@
+                                                                    </figure>
+                                                                </div>
+                                                            }*@
                                                     </div>
                                                     <div class="elementor-swiper-button elementor-swiper-button-prev">
                                                         <i class="eicon-chevron-left" aria-hidden="true"></i>
@@ -280,6 +295,12 @@
         var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false }, "is_rtl": true, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "version": "2.7.5", "urls": { "assets": "https:\/\/winter-binyamin.com\/wp-content\/plugins\/elementor\/assets\/" }, "settings": { "page": [], "general": { "elementor_global_image_lightbox": "yes", "elementor_enable_lightbox_in_editor": "yes" } }, "post": { "id": 6, "title": "HOME", "excerpt": "" } };
     </script>
     <script type='text/javascript' src='https://winter-binyamin.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=2.7.5'></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 </body>
 </html>

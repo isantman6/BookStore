@@ -20,6 +20,6 @@ namespace BookStore.DAL
         public DbSet<Order> orders { get; set; }
         public DbSet<Client> clients { get; set; }
         public DbSet<OrderItem>  orederItems { get; set; }
-
+        public DbSet<ShippingMethod> shippingMethods { get; set; }
     }
 }

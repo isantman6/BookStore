@@ -60,6 +60,10 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,6 +75,12 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -97,6 +107,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="ThenInclude.EF6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThenInclude.EF6.1.0.0.8\lib\net452\ThenInclude.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -120,6 +133,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Img\BoyRead.jpg" />
+    <Content Include="Img\cart.jpg" />
+    <Content Include="Img\flower_0.jpg" />
+    <Content Include="Img\Hasidim.jpg" />
+    <Content Include="Img\LiirningBooks.jpg" />
+    <Content Include="Img\prayer_0.jpg" />
+    <Content Include="Img\חומש_0.jpg" />
+    <Content Include="Img\חנן פורת_0.jpg" />
+    <Content Include="Img\כה עשו_0.jpg" />
+    <Content Include="Img\מחזור.jpg" />
+    <Content Include="Img\מחזור_.jpg" />
+    <Content Include="Img\מחזור_0.jpg" />
+    <Content Include="Img\קהתי_0.jpg" />
+    <Content Include="Img\רינת ישראל_0.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\AdminArea\Views\_ViewStart.cshtml" />
@@ -143,7 +170,24 @@
     <Content Include="Areas\PublicArea\Views\Public\ItemDitels.cshtml" />
     <Content Include="Areas\PublicArea\Views\Public\OrderNow.cshtml" />
     <Content Include="Areas\PublicArea\Views\Public\AddToCart.cshtml" />
+    <Content Include="Areas\PublicArea\Views\Public\OrderDitels2.cshtml" />
+    <Content Include="Areas\PublicArea\Views\Public\EditOrder.cshtml" />
+    <Content Include="Areas\PublicArea\Views\Public\EditClient1.cshtml" />
+    <Content Include="Areas\PublicArea\Views\Public\EditClient.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\PublicArea\Views\Public\Payment.cshtml" />
+    <Content Include="Areas\PublicArea\Views\Public\voucher.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Items\ViewPage1.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Items\Home.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Items\Orders.cshtml" />
     <Content Include="Areas\PublicArea\Views\Public\OrderDitels.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Orders\View.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Home\CreateSale.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Sale\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -155,20 +199,29 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\react.js" />
+    <Content Include="tests\selectWithOpenOption.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\AdminArea\AdminAreaAreaRegistration.cs" />
     <Compile Include="Areas\AdminArea\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\SaleController.cs" />
     <Compile Include="Areas\AdminArea\Controllers\ItemsController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\AdminArea\Data\cascadVM.cs" />
+    <Compile Include="Areas\AdminArea\Data\OrderVM.cs" />
     <Compile Include="Areas\AdminArea\Data\AddItemVM.cs" />
-    <Compile Include="Areas\AdminArea\Data\ItemIndexVM.cs" />
+    <Compile Include="Areas\PublicArea\Controllers\OrdersController.cs" />
     <Compile Include="Areas\PublicArea\Controllers\PublicController.cs" />
     <Compile Include="Areas\PublicArea\PublicAreaAreaRegistration.cs" />
+    <Compile Include="BusinessLogic\OrdersSorting.cs" />
     <Compile Include="BusinessLogic\PaimentLogic.cs" />
+    <Compile Include="DomainModels\Sale.cs" />
     <Compile Include="BusinessLogic\SubtractingItemfromDB.cs" />
     <Compile Include="DAL\StoreContext.cs" />
     <Compile Include="DomainModels\Category.cs" />
@@ -178,6 +231,7 @@
     <Compile Include="DomainModels\OrderModels\Order.cs" />
     <Compile Include="DomainModels\OrderModels\OrderItem.cs" />
     <Compile Include="DomainModels\OrderModels\shippingAddress.cs" />
+    <Compile Include="DomainModels\OrderModels\ShippingMethod.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\PublicArea\Data\" />
+    <Folder Include="Areas\PublicArea\Views\Order\" />
     <Folder Include="Controllers\" />
     <Folder Include="Data\ViewModels\" />
   </ItemGroup>

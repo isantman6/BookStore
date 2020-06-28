@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace BookStore.DomainModels
 {
-    public class Item:ItemCore
+    public class Item
     {
         public Item()
         {
@@ -31,5 +31,6 @@ namespace BookStore.DomainModels
         public int CatgoryId { get; set; } 
         [Display(Name = "קטגוריה")]
         public List<Category> categories { get; set; }
+        public Sale sale { get; set; }
     }
 }

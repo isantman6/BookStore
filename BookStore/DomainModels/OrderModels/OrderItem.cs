@@ -8,10 +8,14 @@ using System.Web.Mvc;
 
 namespace BookStore.DomainModels.OrderModels
 {
-    public class OrderItem:ItemCore
+    public class OrderItem
     {
         private StoreContext db = new StoreContext();
 
+        public OrderItem()
+        {
+
+        }
         public OrderItem(Item item, int Amount)
         {
             this.Name = item.Name;

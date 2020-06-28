@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = "~/Areas/PublicArea/Views/Shared/_PublicLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <section class="elementor-element elementor-element-3b0b5ab elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="3b0b5ab" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        <div class="elementor-background-overlay"></div>
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row">
+                <div class="elementor-element elementor-element-39352dd elementor-column elementor-col-100 elementor-top-column" data-id="39352dd" data-element_type="column">
+                    <div class="elementor-column-wrap  elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                            <div class="elementor-element elementor-element-414dfa7 elementor-widget elementor-widget-heading" data-id="414dfa7" data-element_type="widget" id="eee" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <h2 class="elementor-heading-title elementor-size-default">ספרי איכות</h2>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-47f77ad elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-card-shadow-yes elementor-posts__hover-gradient elementor-widget elementor-widget-posts" data-id="47f77ad" data-element_type="widget" data-settings="{&quot;cards_columns&quot;:&quot;3&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;,&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:35,&quot;sizes&quot;:[]}}" data-widget_type="posts.cards">
+                                <div class="elementor-widget-container">
+                                    <div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid">
+
+                                        <article class="elementor-post elementor-grid-item post-18 post type-post status-publish format-standard has-post-thumbnail hentry category-6">
+                                            <div class="elementor-post__card">
+                                                <a href='@Url.Action("Index", "items")'>
+                                                    <div class="elementor-post__thumbnail"><img width="300" height="199" src="_____" class="attachment-medium size-medium" alt="_____" srcset="_______" sizes="(max-width: 300px) 100vw, 300px" /></div>
+                                                </a>
+
+                                                <div class="elementor-post__badge">אינדקס</div>
+                                                <div class="elementor-post__text">
+                                                    <h3 class="elementor-post__title">
+                                                        <a href='@Url.Action("Index", "items")'>
+                                                            לאינדקס הספרים
+                                                        </a>
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                        <article class="elementor-post elementor-grid-item post-18 post type-post status-publish format-standard has-post-thumbnail hentry category-6">
+                                            <div class="elementor-post__card">
+                                                <a href='@Url.Action("Create", "Items")'>
+                                                    <div class="elementor-post__thumbnail"><img width="300" height="199" src="_____" class="attachment-medium size-medium" alt="___" srcset="____" sizes="(max-width: 300px) 100vw, 300px" /></div>
+                                                </a>
+
+                                                <div class="elementor-post__badge"> הוספת ספר חדש</div>
+                                                <div class="elementor-post__text">
+                                                    <h3 class="elementor-post__title">
+                                                        <a href='@Url.Action("Create", "Items")'>
+                                                            הוספת ספר חדש
+                                                        </a>
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="elementor-post elementor-grid-item post-18 post type-post status-publish format-standard has-post-thumbnail hentry category-6">
+                                            <div class="elementor-post__card">
+                                                <a href='@Url.Action("Index", "Orders",new { SortMethodId = 1 })'>
+                                                    <div class="elementor-post__thumbnail"><img width="300" height="199" src="_____" class="attachment-medium size-medium" alt="___" srcset="____" sizes="(max-width: 300px) 100vw, 300px" /></div>
+                                                </a>
+
+                                                <div class="elementor-post__badge">הזמנות ששולמו</div>
+                                                <div class="elementor-post__text">
+                                                    <h3 class="elementor-post__title">
+                                                        <a href='@Url.Action("Index", "Orders",new { OrderList = 1 })'>
+                                                            הזמנות ששולמו
+                                                        </a>
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="elementor-post elementor-grid-item post-18 post type-post status-publish format-standard has-post-thumbnail hentry category-6">
+                                            <div class="elementor-post__card">
+                                                <a href='@Url.Action("Index", "Orders",new { SortMethodId = 2 })'>
+                                                    <div class="elementor-post__thumbnail"><img width="300" height="199" src="_____" class="attachment-medium size-medium" alt="___" srcset="____" sizes="(max-width: 300px) 100vw, 300px" /></div>
+                                                </a>
+
+                                                <div class="elementor-post__badge">הזמנות שטרם שולמו</div>
+                                                <div class="elementor-post__text">
+                                                    <h3 class="elementor-post__title">
+                                                        <a href='@Url.Action("Index", "Orders",new { SortMethodId = 2 })'>
+                                                            הזמנות שטרם שולמו
+                                                        </a>
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="elementor-post elementor-grid-item post-18 post type-post status-publish format-standard has-post-thumbnail hentry category-6">
+                                            <div class="elementor-post__card">
+                                                <a href='@Url.Action("CreateSale", "Home")'>
+                                                    <div class="elementor-post__thumbnail"><img width="300" height="199" src="_____" class="attachment-medium size-medium" alt="___" srcset="____" sizes="(max-width: 300px) 100vw, 300px" /></div>
+                                                </a>
+
+                                                <div class="elementor-post__badge">יצירת מבצע</div>
+                                                <div class="elementor-post__text">
+                                                    <h3 class="elementor-post__title">
+                                                        <a href='@Url.Action("CreateSale", "Home")'>
+                                                            יצירת מבצע
+                                                        </a>
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

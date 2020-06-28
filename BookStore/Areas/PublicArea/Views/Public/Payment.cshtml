@@ -1,0 +1,71 @@
+﻿@model BookStore.Areas.AdminArea.Data.OrderVM
+
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Areas/PublicArea/Views/Shared/_PublicLayout.cshtml";
+}
+
+<h2>Payment</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.order.MyItems)
+        {
+            <dt>
+                <dr> @item.Name</dr>
+                <dr>@item.Price</dr>
+            </dt>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.order.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(Model.client.FullName.ToString())
+        </dt>
+        <dd>
+            @Html.Display(Model.client.FullName.ToString())
+        </dd>
+        <dt>
+            @Html.DisplayName(Model.client.Mail.ToString())
+        </dt>
+        <dd>
+            @Html.Display(Model.client.Mail.ToString())
+        </dd>
+        <dt>
+            @Html.DisplayName(Model.client.PhonNumber.ToString())
+        </dt>
+        <dd>
+            @Html.Display(Model.client.PhonNumber.ToString())
+        </dd>
+        <dt>
+            @Html.DisplayName(Model.client.Address.ToString())
+        </dt>
+        <dd>
+            @Html.Display(Model.client.Address.City) @Html.Display(Model.client.Address.Street) @Html.Display(Model.client.Address.HouseNumber.ToString())
+        </dd>
+
+    </dl>
+    <form action='@Url.Action("voucher","Public")'>
+        <label>crdit card number</label>
+        <input id="card" type="number" required />
+        <input type="hidden" name="orderId" value="@Model.order.Id" />
+        <input type="hidden" name="Paid" value="true" />
+        <button type="submit">אישור</button>
+    </form>
+
+</div>
+<script type="text/javascript">
+
+    bbb: function() {
+
+        href = "~/Areas/PublicArea/Controllers/Public/voucher"
+    }
+
+</script>

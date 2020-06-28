@@ -1,4 +1,4 @@
-﻿@model BookStore.Areas.AdminArea.Data.OrderVM
+﻿@model BookStore.DomainModels.OrderModels.Order
 
 @{
     ViewBag.Title = "OrderDitels";
@@ -8,30 +8,30 @@
 <h2>OrderDitels</h2>
 
 <div>
-    <h4>OrderVM</h4>
+    <h4>Order</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.order.MyItems)
+            @Html.DisplayNameFor(model => model.MyItems)
         </dt>
+      
+            @foreach (var item in Model.MyItems)
+            {
+                <tr>
+                    <td>@item.Name</td>
 
-        @foreach (var item in Model.order.MyItems)
-        {
-            <tr>
-                <td>@item.Name</td>
+                    <td>@item.Price</td>
 
-                <td>@item.Price</td>
-
-                <td>@item.AmountToOrder</td>
-            </tr>
-        }
-
+                    <td>@item.AmountToOrder</td>
+                </tr>
+            }
+       
         <dt>
-            @Html.DisplayNameFor(model => model.order.TotalPrice)
+            @Html.DisplayNameFor(model => model.TotalPrice)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.order.TotalPrice)
+            @Html.DisplayFor(model => model.TotalPrice)
         </dd>
 
         <dt>
@@ -70,11 +70,15 @@
         </dd>
 
     </dl>
-    
-</div>
-<p>
-    @Html.ActionLink("לתשלום", "payment", new { OrderId = Model.order.Id }) |||
-    @Html.ActionLink("לתיקון פרטי לקוח", "EditClient", new { ClintId = Model.client.Id })|||
-    @Html.ActionLink("לשינוי במוצרי ההזמנה", "EditOrder", new { OrderId = Model.order.Id })
+    <div>סוג משלוח @Model.ShipingMethodId</div>
 
-</p>
+
+    <p>
+        @Html.ActionLink("לתשלום", "payment", new { OrderId = Model.Id }) |||
+        @Html.ActionLink("לתיקון פרטי לקוח", "EditClient", new { ClintId = Model.client.Id })|||
+        @Html.ActionLink("לשינוי במוצרי ההזמנה", "EditOrder", new { OrderId = Model.Id })
+
+    </p>
+</div>
+
+

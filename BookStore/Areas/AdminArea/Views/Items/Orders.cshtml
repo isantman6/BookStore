@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BookStore.Areas.AdminArea.Data.OrderVM>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipped)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipingMethodId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MyItems)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c)
+        </th>
+    </tr>
+
+@foreach (var Order in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => Order.TotalPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Order.Paid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Order.Shipped)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Order.ShipingMethodId)
+    </td>
+    <td>
+        @foreach (var item in Order.MyItems)
+        {
+            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Price)
+        }
+
+    </td>
+    <td>
+        @foreach (var Prop in Order.client)
+        {
+          @Html.Display(Prop.ToString());
+
+        }
+      
+
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = Order.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = Order.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Order.Id })
+    </td>
+</tr>
+}
+
+</table>

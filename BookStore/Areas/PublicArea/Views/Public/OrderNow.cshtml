@@ -18,64 +18,126 @@
 
 </dd>
 
+<p class="TotalPrice">@Model.TotalPrice</p>
 
-@using (Html.BeginForm("OrderDitels","Public"))
+
+@using (Html.BeginForm("OrderDitels", "Public"))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h4>Order</h4>
-        <form class="Ditels" action="OrderDitels" enctype="multipart/form-data" method="post" role="form">
+        <form id="Ditels" action="OrderDitels" enctype="multipart/form-data" method="post" role="form">
             <div class="box-body">
                 <div class="form-group">
                     <label for="text">שם</label>
-                    <input type="text" name="Name" class="form-control" placeholder="שם מלא">
+                    <input type="text" name="Name" class="form-control" placeholder="שם מלא" required>
                 </div>
                 <div class="form-group">
                     <label for="text">מספר טלפון</label>
-                    <input type="text" name="PhonNumber" class="form-control" placeholder="טלפון">
+                    <input type="tel" pattern="[0-9]{10}" id="PhonNumber" name="PhonNumber" class="form-control" placeholder="טלפון" required>
                 </div>
                 <div class="form-group">
                     <label for="text">עיר</label>
-                    <input type="text" name="City" class="form-control" placeholder="City">
-                </div><div class="form-group">
+                    <input type="text" name="City" class="form-control" placeholder="City" required>
+                </div>
+                <div class="form-group">
                     <label for="text">רחוב</label>
-                    <input type="text" name="Street" class="form-control" placeholder="ZipNumber">
+                    <input type="text" name="Street" class="form-control" placeholder="Street" required>
+                </div>
+                <div class="form-group">
+                    <label for="text">מספר בית</label>
+                    <input type="number" name="HouseNumber" class="form-control" placeholder="HouseNumber" required>
                 </div>
                 <div class="form-group">
                     <label for="text">מיקוד</label>
-                    <input type="text" name="ZipNumber" class="form-control" placeholder="ZipNumber">
+                    <input type="number" pattern="[0-9]{7}" name="ZipNumber" class="form-control" placeholder="ZipNumber" required>
                 </div>
                 <div class="form-group">
                     <label for="text">Mail</label>
-                    <input type="text" name="Mail" class="form-control" placeholder="כתובת מייל">
+                    <input type="email" id="mail" name="Mail" class="form-control" placeholder="כתובת מייל" required>
                 </div>
-                @*@foreach (var prop in ViewBag.address)
-                {
-                  
-                        <label for="text">@prop</label>
-                        <input type="text" name=@prop class="form-control" placeholder="@prop">
-                   
-                }*@
-                <input type="hidden" name="OrderId" value="@Model.Id">
+                <input type="hidden" name="OrderId" value="@Model.Id" />
+                <input type="hidden" id="finalPrice" name="finalPrice"  />
+
+                <label>בחר סוג משלוח</label>
+                <select id="ShippingMethod" name="ShippingMethodId">
+                    <option>בחר סוג משלוח</option>
+                    @foreach (var ShippingMethod in ViewBag.ShippingMethod as IList
+                    <BookStore.DomainModels.OrderModels.ShippingMethod>)
+                    {
+                        <option data-bbb="@ShippingMethod.DifoltPriceForShipping" value="@ShippingMethod.id">@ShippingMethod.ShippingCompany      :מחיר  @ShippingMethod.DifoltPriceForShipping   </option>
+                    }
+                </select>
 
             </div>
             <div class="box-footer">
-                @*<a href="@Url.Action("OrderDitels", "Public" )" class="button" onclick="SubmitForm()">לתשלום</a>*@
-                <button type="submit"  class="btn btn-primary">Submit</button>&nbsp;
+
+                <p class="TotalPrice">מחיר ללא משלוח  @Model.TotalPrice ש"ח   </p>
+
+                <button id="Submit" type="submit" class="btn btn-primary">Submit</button>&nbsp;
             </div>
         </form>
-
-        
-       
+    </div>
 
 
-</div>
+
+
+
 }
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-    function SubmitForm()
-    {
-        ('form#Ditels').submit();
-    }
-</script>
 
+    function formatPrice(Price) {
+
+        return '  מחיר כולל משלוח:    ' + Price +' ש"ח  ';
+    }
+    var OrderPrice =@Model.TotalPrice;
+    var totalPrice;
+
+    //calculate the total price of the order include shipping price without Api
+    $('select').change(function () {
+        //alert($(this).find(':selected').data('bbb'));
+        var ShipingPrice = ($(this).find(':selected').data('bbb'));
+       totalPrice = ShipingPrice + OrderPrice;
+        $('.TotalPrice').text(formatPrice(totalPrice));
+        $('#finalPrice').val(totalPrice) ;
+    });
+
+
+    //calculat total price useing Api
+    var uri = 'api/Public2';
+
+     function CalculatTotalPrice() {
+        var ShippingMethodid = $('#ShippingMethod').val();
+        var OrderId =@Model.Id;
+        $.getJSON(uri + '/' + ShippingMethodid + ' , ' + OrderId)
+            .done(function (data) {
+                $('#TotalPrice1').text(data);
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#TotalPrice1').text('Error: ' + err);
+            });
+    }
+
+    //validat phon number input
+    const phone = document.getElementById("PhonNumber");
+    Phone.addEventListener("input", function (event) {
+        if (parseInt(form.phone.value) != form.phone.value) {
+            Phone.setCustomValidity("מספר טלפון לא תקין");
+        } else {
+            phone.setCustomValidity("");
+        }
+    });
+
+    //validat email input
+    email.addEventListener("input", function (event) {
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("I am expecting an e-mail address!");
+        } else {
+            email.setCustomValidity("");
+        }
+    });
+
+
+</script>

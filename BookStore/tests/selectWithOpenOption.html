@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="billdesc">
+        <select id="test">
+            <option class="non" value="option1">Option1</option>
+            <option class="non" value="option2">Option2</option>
+            <option class="editable" value="other">Other</option>
+        </select>
+        <input class="editOption" style="display:none;">
+    </div>
+  
+</body>
+
+</html>
+<script src="../Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+    var initialText = $('.editable').val();
+    $('.editOption').val(initialText);
+
+    $('#test').change(function () {
+        var selected = $('option:selected', this).attr('class');
+        var optionText = $('.editable').text();
+
+        if (selected == "editable") {
+            $('.editOption').show();
+
+
+            $('.editOption').keyup(function () {
+                var editText = $('.editOption').val();
+                $('.editable').val(editText);
+                $('.editable').html(editText);
+            });
+
+        } else {
+            $('.editOption').hide();
+        }
+    });
+
+</script>
