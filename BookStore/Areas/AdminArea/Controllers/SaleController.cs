@@ -1,6 +1,7 @@
 ﻿using BookStore.Areas.AdminArea.Data;
 using BookStore.DAL;
 using BookStore.DomainModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,12 +26,12 @@ namespace BookStore.Areas.AdminArea.Controllers
             return View(cascad);
         }
         [HttpGet]
-        public ActionResult GetItems(int? CategoryId)
+        public ActionResult GetItems(/*int? CategoryId*/)
         {
             
-            if (CategoryId != null)
+            //if (CategoryId != null)
             {
-                var items = db.categories.Include(c => c.Items).AsNoTracking().FirstOrDefault(c =>c.Id ==CategoryId).Items.ToList();
+                var items = db.categories.Include(c => c.Items).AsNoTracking().FirstOrDefault(c =>c.Id ==2).Items.ToList();
                 List<SelectListItem> selectListItems = new List<SelectListItem>();
 
                 foreach (var item in items)
@@ -38,14 +39,13 @@ namespace BookStore.Areas.AdminArea.Controllers
                     var itemSelect = new SelectListItem
                     {
                         Value = item.Id.ToString(),
-                        Text=item.Name
+                        Text=item.Name+" מחיר:"+item.Price
                     };
                     selectListItems.Add(itemSelect); 
                 }
-
                return Json(selectListItems, JsonRequestBehavior.AllowGet);
             }
-            return null;
+           // return null;
         }
         //[HttpPost]
         //public ActionResult Index(int? categoryId)

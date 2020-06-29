@@ -11,14 +11,20 @@
     <option value="">בחר קטגוריה</option>
     @foreach (var category in Model.categories)
     {
-        <option  value="@category.Id">@category.Name</option>
+        <option  value="@category.Id">@category.Name </option>
     }
 </select>
-<select id=""></select>
+<form id="Item">
+
+</form>
+<select multiple id="Item">
+    
+   
+</select>
 <div class="form-group">
     @*@Html.LabelFor(x => Model.selectedItemId, htmlAttributes: new { @class = "control-label col-md-2" })*@
     <div class="col-md-5">
-        @Html.DropDownListFor(x => Model.selectedItemId, new SelectList(Model.items, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Item" })
+        @Html.DropDownListFor(x => Model.selectedItemId, new SelectList(Model.items, "Value", "Text"), htmlAttributes: new { @class = "form-control", @*@id = "Item"*@ })
         @Html.ValidationMessageFor(x => x.selectedItemId, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -35,14 +41,16 @@
                     $.getJSON('@Url.Action("GetItems")', { CategoryId: selectedCategory }, function (Items) {
                         if (Items != null && !jQuery.isEmptyObject(Items))
                         {
-                            ItemsSelect.append($('<option/>', {
+                            ItemsSelect.append($('<input type="checkbox"/>', {
                                 value: null,
                                 text: ""
                             }));
-                            $.each(Items, function (index, Item) {
-                                ItemsSelect.append($('<option/>', {
-                                    value: Item.Value,
-                                    text: Item.Text
+                            $.each(Items, function (index,item) {
+                               // item2 = JSON.parse(data);
+                               
+                                ItemsSelect.append($('<input type="checkbox"/>', {
+                                    value: item.Value,
+                                    text: item.Text 
                                 }));
                             });
                         };
